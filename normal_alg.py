@@ -5,13 +5,13 @@ Works great for midrange numbers and even 5 digit, breaks down around zero becau
 Currently have a janky fix for it.
 """
 
-def getNormalZ2O(expected_value,actual_value,harshness=3,test=False):
+def getNormalZ2O(expected_value,actual_value,harshness=3,normalizeMode=False):
     standard_dev = expected_value/harshness
     if standard_dev<1 and standard_dev>-1:
         standard_dev = 1
     if harshness==0:
         harshness = 0.1
-    if test:
+    if normalizeMode:
         result = 1/(standard_dev*math.sqrt(2*math.pi))
         if result==0:
             return 0.0001
